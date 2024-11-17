@@ -68,6 +68,7 @@ class QuantModel(nn.Module):
             if isinstance(m, QuantModule):
                 module_list += [m]
 
+
         module_list[-1].disable_act_quant = True
 
     def synchorize_activation_statistics(self):
@@ -77,7 +78,7 @@ class QuantModel(nn.Module):
                 if m.act_quantizer.delta is not None:
                     dist.allaverage(m.act_quantizer.delta)
 
-                    
+
 
 
 
